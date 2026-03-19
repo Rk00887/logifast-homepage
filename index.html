@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EC物流・発送代行 | ロジファスト</title>
+  <meta name="description" content="EC物流・発送代行ならロジファスト。倉庫完備・EC特化型オーダーメイド物流で、在庫管理から出荷まで一括代行。横浜市に3拠点の物流センター。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:   #009fe3;
+      --navy:   #3d66ae;
+      --dark:   #222222;
+      --gray:   #4f4f4f;
+      --lgray:  #f2f3f5;
+      --lblue:  #f5fcff;
+      --border: #e2e2e2;
+      --white:  #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--dark);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .sec { padding: 80px 0; }
+    .sec-title {
+      font-size: 26px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .sec-title em { color: var(--blue); font-style: normal; }
+    .sec-sub {
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn:hover { opacity: .85; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-line { background: transparent; border: 2px solid var(--blue); color: var(--blue); }
+    .btn-wh   { background: #fff; color: var(--blue); }
+
+    /* ── HEADER ── */
+    #hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    }
+    .hdr-in {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 0 20px; height: 68px;
+    }
+    .hdr-logo img { height: 36px; }
+    .hdr-right { display: flex; align-items: center; gap: 0; }
+    .hdr-nav { display: flex; align-items: center; }
+    .hdr-nav > ul { display: flex; align-items: center; }
+    .hdr-nav > ul > li { position: relative; }
+    .hdr-nav > ul > li > a {
+      display: block; padding: 8px 11px;
+      font-size: 13px; font-weight: 500; color: var(--dark);
+      white-space: nowrap;
+      transition: color .15s;
+    }
+    .hdr-nav > ul > li > a:hover { color: var(--blue); }
+    /* dropdown */
+    .hdr-nav > ul > li > ul {
+      display: none;
+      position: absolute; top: 100%; left: 0;
+      background: #fff; min-width: 260px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      border-radius: 4px; padding: 6px 0; z-index: 99;
+    }
+    .hdr-nav > ul > li:hover > ul { display: block; }
+    .hdr-nav > ul > li > ul li a {
+      display: block; padding: 9px 18px;
+      font-size: 13px; color: var(--gray);
+      transition: background .15s, color .15s;
+    }
+    .hdr-nav > ul > li > ul li a:hover { background: var(--lblue); color: var(--blue); }
+    .hdr-cta {
+      background: var(--blue); color: #fff !important;
+      padding: 10px 18px; border-radius: 4px;
+      font-size: 13px; font-weight: 700;
+      margin-left: 10px; white-space: nowrap;
+      transition: background .2s;
+    }
+    .hdr-cta:hover { background: var(--navy) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      margin-top: 68px;
+      position: relative;
+      background: url('https://logifast.jp/wp-content/uploads/2024/12/mvBg.png') center center / cover no-repeat;
+      min-height: 600px;
+      display: flex; align-items: center;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 60%, rgba(0,0,0,.05) 100%);
+    }
+    .hero-in {
+      position: relative; z-index: 1;
+      max-width: 1140px; margin: 0 auto; padding: 60px 24px;
+      display: flex; align-items: flex-start; gap: 40px;
+    }
+    .hero-txt { flex: 1; color: #fff; }
+    .hero-tag {
+      display: inline-block;
+      background: var(--blue); color: #fff;
+      font-size: 12px; font-weight: 700;
+      padding: 3px 12px; border-radius: 2px;
+      margin-bottom: 16px; letter-spacing: .06em;
+    }
+    .hero-txt h1 {
+      font-size: 38px; font-weight: 900; line-height: 1.3;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.3);
+    }
+    .hero-txt h2 {
+      font-size: 20px; font-weight: 700; line-height: 1.5;
+      margin-bottom: 24px;
+      text-shadow: 0 1px 4px rgba(0,0,0,.3);
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* hero form card */
+    .hero-form {
+      flex: 0 0 320px;
+      background: rgba(255,255,255,.97);
+      border-radius: 8px; padding: 28px 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    }
+    .hero-form h3 {
+      font-size: 15px; font-weight: 700;
+      color: var(--dark); margin-bottom: 16px;
+      text-align: center; border-bottom: 2px solid var(--blue);
+      padding-bottom: 10px;
+    }
+    .hf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .hf-group { margin-bottom: 10px; }
+    .hf-group label {
+      display: block; font-size: 11px; font-weight: 700;
+      color: var(--dark); margin-bottom: 4px;
+    }
+    .hf-group label .req { color: #e53935; margin-left: 3px; font-size: 10px; }
+    .hf-group input {
+      width: 100%; border: 1px solid var(--border);
+      border-radius: 4px; padding: 9px 10px;
+      font-size: 13px; font-family: inherit;
+      color: var(--dark); background: var(--lgray);
+      transition: border-color .2s;
+    }
+    .hf-group input:focus { outline: none; border-color: var(--blue); background: #fff; }
+    .hf-submit {
+      width: 100%; background: var(--blue); color: #fff;
+      border: none; border-radius: 4px; padding: 13px;
+      font-size: 14px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: background .2s;
+    }
+    .hf-submit:hover { background: var(--navy); }
+
+    /* ── COMPANY INTRO ── */
+    #intro { background: var(--lblue); padding: 56px 0; }
+    .intro-in {
+      display: flex; align-items: center; gap: 48px;
+    }
+    .intro-txt { flex: 1; }
+    .intro-txt h2 {
+      font-size: 18px; font-weight: 700; color: var(--navy);
+      line-height: 1.6; margin-bottom: 16px;
+    }
+    .intro-txt p { font-size: 14px; color: var(--gray); line-height: 1.95; }
+    .intro-stats {
+      flex: 0 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .istat {
+      background: #fff; border-radius: 8px; padding: 16px 20px;
+      text-align: center; border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    }
+    .istat-num { font-size: 22px; font-weight: 900; color: var(--blue); line-height: 1; }
+    .istat-label { font-size: 11px; color: var(--gray); margin-top: 4px; }
+
+    /* ── PROBLEMS ── */
+    #problems { background: var(--lgray); padding: 80px 0; }
+    .prob-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    }
+    .prob-card {
+      background: #fff; border-radius: 8px; padding: 20px 18px;
+      display: flex; align-items: flex-start; gap: 14px;
+      border-left: 4px solid var(--blue);
+    }
+    .prob-ico { font-size: 26px; flex-shrink: 0; }
+    .prob-card p { font-size: 13px; font-weight: 600; color: var(--dark); }
+    .prob-cta { text-align: center; margin-top: 36px; }
+
+    /* ── FEATURES ── */
+    #features { padding: 90px 0; }
+    .feat-item {
+      display: flex; align-items: center; gap: 60px; margin-bottom: 72px;
+    }
+    .feat-item:last-child { margin-bottom: 0; }
+    .feat-item.rev { flex-direction: row-reverse; }
+    .feat-body { flex: 1; }
+    .feat-pt {
+      font-size: 12px; font-weight: 700; color: var(--blue);
+      letter-spacing: .1em; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .feat-pt::after {
+      content: ''; display: inline-block;
+      width: 36px; height: 2px; background: var(--blue);
+    }
+    .feat-body h3 {
+      font-size: 21px; font-weight: 900; line-height: 1.45;
+      margin-bottom: 14px; color: var(--dark);
+    }
+    .feat-body p { font-size: 14px; color: var(--gray); line-height: 1.95; }
+    .feat-img {
+      flex: 1; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--lgray); padding: 80px 0; }
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .svc-card {
+      background: #fff; border-radius: 8px; padding: 22px 14px;
+      text-align: center; border: 1px solid var(--border);
+      transition: box-shadow .2s, transform .2s;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .svc-card:hover { box-shadow: 0 6px 20px rgba(0,159,227,.15); transform: translateY(-2px); }
+    .svc-ico { font-size: 32px; }
+    .svc-card h3 { font-size: 13px; font-weight: 700; color: var(--dark); }
+    .svc-card p { font-size: 11px; color: var(--gray); }
+    .svc-more { text-align: center; margin-top: 36px; }
+
+    /* ── PRODUCTS ── */
+    #products { padding: 80px 0; }
+    .prod-grid {
+      display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px;
+    }
+    .prod-item { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+    .prod-item img { width: 100%; height: 100px; object-fit: cover; }
+    .prod-item h3 { font-size: 12px; font-weight: 700; text-align: center; padding: 8px 6px; }
+
+    /* ── INTEGRATIONS ── */
+    #integrations { background: var(--lblue); padding: 72px 0; }
+    .integ-img { border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+
+    /* ── CREDENTIALS ── */
+    #creds { background: var(--dark); padding: 80px 0; }
+    #creds .sec-title { color: #fff; }
+    #creds .sec-sub   { color: rgba(255,255,255,.65); }
+    .creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .cred-card {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: 36px 20px; text-align: center; color: #fff;
+    }
+    .cred-ico  { font-size: 44px; margin-bottom: 14px; }
+    .cred-num  { font-size: 32px; font-weight: 900; color: var(--blue); line-height: 1; margin-bottom: 8px; }
+    .cred-lbl  { font-size: 13px; color: rgba(255,255,255,.75); }
+
+    /* ── TESTIMONIALS ── */
+    #testi { background: var(--lgray); padding: 80px 0; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testi-card {
+      background: #fff; border-radius: 10px; padding: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    }
+    .testi-q { font-size: 44px; color: var(--blue); opacity: .2; font-family: serif; line-height: 1; margin-bottom: 10px; }
+    .testi-card p { font-size: 13px; color: var(--gray); line-height: 1.9; font-style: italic; }
+    .testi-author {
+      margin-top: 18px; padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; font-weight: 700; color: var(--dark);
+    }
+
+    /* ── CASES ── */
+    #cases { padding: 80px 0; }
+    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .case-card {
+      border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border);
+      display: block;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .case-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.1); transform: translateY(-2px); }
+    .case-card img { width: 100%; height: 190px; object-fit: cover; }
+    .case-body { padding: 16px; background: #fff; }
+    .case-meta { font-size: 11px; color: var(--blue); font-weight: 600; margin-bottom: 6px; }
+    .case-body h3 { font-size: 13px; font-weight: 700; color: var(--dark); line-height: 1.6; }
+    .cases-more { text-align: center; margin-top: 36px; }
+
+    /* ── PRICING ── */
+    #pricing {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      padding: 80px 0; text-align: center;
+    }
+    #pricing .sec-title { color: #fff; }
+    #pricing .sec-sub   { color: rgba(255,255,255,.8); }
+    .price-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px; }
+    .price-card {
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22);
+      border-radius: 10px; padding: 24px 16px; color: #fff; text-align: center;
+    }
+    .price-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+    .price-card p  { font-size: 12px; opacity: .85; }
+    .price-note { color: rgba(255,255,255,.8); font-size: 13px; margin-bottom: 28px; }
+
+    /* ── FLOW ── */
+    #flow { background: var(--lgray); padding: 80px 0; }
+    .flow-steps {
+      display: flex; align-items: flex-start;
+      justify-content: center; gap: 0; flex-wrap: nowrap;
+    }
+    .flow-step { flex: 1; text-align: center; position: relative; padding: 0 8px; }
+    .flow-step:not(:last-child)::after {
+      content: '→';
+      position: absolute; right: -6px; top: 18px;
+      font-size: 20px; color: var(--blue);
+    }
+    .flow-num {
+      width: 52px; height: 52px; background: var(--blue); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; margin: 0 auto 10px;
+    }
+    .flow-step h3 { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .flow-step p  { font-size: 11px; color: var(--gray); }
+
+    /* ── FAQ ── */
+    #faq { padding: 80px 0; }
+    .faq-list { max-width: 740px; margin: 0 auto; }
+    .faq-item { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      text-align: left; padding: 18px 20px;
+      font-size: 14px; font-weight: 700; color: var(--dark);
+      cursor: pointer; display: flex; align-items: center; gap: 14px;
+      font-family: inherit; transition: background .15s;
+    }
+    .faq-q:hover { background: var(--lblue); }
+    .faq-qmark {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: var(--blue); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 900;
+    }
+    .faq-arr { margin-left: auto; font-size: 12px; color: var(--blue); transition: transform .2s; }
+    .faq-item.open .faq-arr { transform: rotate(180deg); }
+    .faq-ans {
+      display: none; padding: 0 20px 18px 62px;
+      font-size: 13px; color: var(--gray); line-height: 1.9;
+      background: var(--lblue);
+    }
+    .faq-item.open .faq-ans { display: block; }
+    .faq-more { text-align: center; margin-top: 36px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--lgray); padding: 80px 0; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .c-info h2 { font-size: 24px; font-weight: 900; margin-bottom: 14px; }
+    .c-info p  { font-size: 13px; color: var(--gray); line-height: 1.95; margin-bottom: 24px; }
+    .c-tel {
+      background: #fff; border-radius: 6px; padding: 20px;
+      border: 1px solid var(--border); margin-bottom: 12px;
+    }
+    .c-tel-lbl { font-size: 11px; color: var(--gray); margin-bottom: 4px; }
+    .c-tel a   { font-size: 26px; font-weight: 900; color: var(--dark); }
+    .c-tel-note { font-size: 11px; color: var(--gray); margin-top: 3px; }
+    .c-form-card {
+      background: #fff; border-radius: 10px; padding: 36px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    }
+    .c-form-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cf-g { margin-bottom: 14px; }
+    .cf-g label {
+      display: block; font-size: 12px; font-weight: 600;
+      color: var(--dark); margin-bottom: 5px;
+    }
+    .cf-g label .req { color: #e53935; margin-left: 3px; font-size: 10px; }
+    .cf-g input, .cf-g textarea {
+      width: 100%; border: 1px solid var(--border);
+      border-radius: 4px; padding: 10px 12px;
+      font-size: 13px; font-family: inherit;
+      color: var(--dark); background: var(--lgray);
+      transition: border-color .2s;
+    }
+    .cf-g input:focus, .cf-g textarea:focus {
+      outline: none; border-color: var(--blue); background: #fff;
+    }
+    .cf-g textarea { resize: vertical; min-height: 100px; }
+    .cf-submit {
+      width: 100%; background: var(--blue); color: #fff;
+      border: none; border-radius: 4px; padding: 14px;
+      font-size: 15px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: background .2s;
+    }
+    .cf-submit:hover { background: var(--navy); }
+
+    /* ── FOOTER ── */
+    #footer { background: var(--dark); color: rgba(255,255,255,.7); padding: 56px 0 0; }
+    .footer-top {
+      display: grid; grid-template-columns: 240px 1fr; gap: 56px;
+      padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .ft-logo img { height: 38px; margin-bottom: 20px; }
+    .ft-addr { font-size: 13px; line-height: 2; }
+    .ft-addr a { color: var(--blue); }
+    .ft-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .ft-nav-col h4 {
+      font-size: 13px; font-weight: 700; color: #fff;
+      margin-bottom: 14px; padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .ft-nav-col li { margin-bottom: 8px; }
+    .ft-nav-col a {
+      font-size: 12px; color: rgba(255,255,255,.6);
+      transition: color .15s;
+    }
+    .ft-nav-col a:hover { color: var(--blue); }
+    .footer-btm {
+      text-align: center; padding: 18px;
+      font-size: 11px; color: rgba(255,255,255,.35);
+    }
+
+    /* ── FLOATING ── */
+    .fl-cta {
+      position: fixed; bottom: 20px; right: 20px; z-index: 800;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .fl-cta a {
+      display: flex; align-items: center; gap: 6px;
+      padding: 11px 18px; border-radius: 50px;
+      font-size: 12px; font-weight: 700;
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+      transition: transform .2s;
+    }
+    .fl-cta a:hover { transform: scale(1.04); }
+    .fl-contact { background: var(--blue);   color: #fff; }
+    .fl-tel     { background: var(--dark);   color: #fff; }
+    .back-top {
+      position: fixed; bottom: 118px; right: 24px; z-index: 800;
+      width: 40px; height: 40px; background: var(--blue); color: #fff;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.2);
+      opacity: 0; transition: opacity .3s; cursor: pointer;
+    }
+    .back-top.vis { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero-in { flex-direction: column; }
+      .hero-form { flex: none; width: 100%; max-width: 440px; }
+      .intro-in { flex-direction: column; }
+      .prob-grid { grid-template-columns: repeat(2, 1fr); }
+      .svc-grid  { grid-template-columns: repeat(3, 1fr); }
+      .prod-grid { grid-template-columns: repeat(4, 1fr); }
+      .creds-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr 1fr; }
+      .price-cards { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .ft-nav { grid-template-columns: 1fr 1fr; }
+      .hdr-nav > ul { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero-txt h1 { font-size: 26px; }
+      .hero-txt h2 { font-size: 16px; }
+      .prob-grid  { grid-template-columns: 1fr; }
+      .svc-grid   { grid-template-columns: repeat(2, 1fr); }
+      .prod-grid  { grid-template-columns: repeat(4, 1fr); }
+      .cases-grid { grid-template-columns: 1fr; }
+      .price-cards { grid-template-columns: 1fr; }
+      .flow-steps { flex-direction: column; align-items: center; }
+      .flow-step:not(:last-child)::after {
+        content: '↓'; right: auto; top: auto; bottom: -20px;
+        left: 50%; transform: translateX(-50%);
+      }
+      .cf-row { grid-template-columns: 1fr; }
+      .c-form-card { padding: 20px; }
+      .ft-nav { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ HEADER ════════════ -->
+<header id="hdr">
+  <div class="hdr-in">
+    <a class="hdr-logo" href="#">
+      <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/lgf-logo-top.png?resize=300%2C39&ssl=1" alt="ロジファスト">
+    </a>
+    <div class="hdr-right">
+      <nav class="hdr-nav">
+        <ul>
+          <li><a href="#features">特長</a></li>
+          <li>
+            <a href="#problems">解決できる課題</a>
+            <ul>
+              <li><a href="#problems">アウトソース先の品質が低くて困っている</a></li>
+              <li><a href="#problems">受注から出荷までをスムーズにしたい</a></li>
+              <li><a href="#problems">出荷量が増えて自社対応が難しくなってきた</a></li>
+              <li><a href="#problems">慢性的な人手不足を解消したい</a></li>
+              <li><a href="#problems">付加価値をつけてリピーターを増やしたい</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#services">対応可能な業務</a>
+            <ul>
+              <li><a href="#services">検品</a></li>
+              <li><a href="#services">検針</a></li>
+              <li><a href="#services">出荷対応</a></li>
+              <li><a href="#services">保管・荷役</a></li>
+              <li><a href="#services">タグ・ラベル貼付</a></li>
+              <li><a href="#services">在庫管理</a></li>
+              <li><a href="#services">FBA納品代行</a></li>
+              <li><a href="#services">セット組・同梱物</a></li>
+              <li><a href="#services">ギフト包装</a></li>
+              <li><a href="#services">オリジナルダンボール作成</a></li>
+              <li><a href="#services">返品対応</a></li>
+            </ul>
+          </li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#cases">事例</a></li>
+          <li><a href="#pricing">料金</a></li>
+          <li><a href="#contact">会社概要</a></li>
+        </ul>
+      </nav>
+      <a class="hdr-cta" href="#contact">お問い合わせ</a>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════ HERO ════════════ -->
+<section id="hero">
+  <div class="hero-in">
+    <div class="hero-txt">
+      <span class="hero-tag">EC物流・発送代行</span>
+      <h1>倉庫完備・EC特化型<br>オーダーメイド物流</h1>
+      <h2>売上アップする EC物流・発送代行<br>出荷自動化でECの手間とストレスを軽減</h2>
+      <div class="hero-btns">
+        <a class="btn btn-blue" href="#contact">無料でお問い合わせ</a>
+        <a class="btn btn-wh"   href="#features">特長を見る</a>
+      </div>
+    </div>
+
+    <div class="hero-form">
+      <h3>まずはお気軽にご相談ください</h3>
+      <form>
+        <div class="hf-row">
+          <div class="hf-group">
+            <label>お名前（姓）<span class="req">必須</span></label>
+            <input type="text" placeholder="山田" required>
+          </div>
+          <div class="hf-group">
+            <label>お名前（名）<span class="req">必須</span></label>
+            <input type="text" placeholder="太郎" required>
+          </div>
+        </div>
+        <div class="hf-group">
+          <label>メールアドレス<span class="req">必須</span></label>
+          <input type="email" placeholder="example@company.co.jp" required>
+        </div>
+        <div class="hf-group">
+          <label>会社名<span class="req">必須</span></label>
+          <input type="text" placeholder="株式会社〇〇" required>
+        </div>
+        <div class="hf-group">
+          <label>電話番号</label>
+          <input type="tel" placeholder="045-000-0000">
+        </div>
+        <button type="submit" class="hf-submit">送信する</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ COMPANY INTRO ════════════ -->
+<section id="intro">
+  <div class="wrap">
+    <div class="intro-in">
+      <div class="intro-txt">
+        <h2>売上アップする EC物流・発送代行とは？</h2>
+        <p>ネットショップ・通販など物販事業者を対象にした高品質な発送代行サービスです。膨大で多岐に渡るECのバックヤード業務をプロである私たちが窓口一本のワンストップでお引き受けし、商品開発や販促などのコア業務に集中できる環境をご提供します。2012年にEC物流を開始して以来、あらゆる課題を解決してきた物流のプロフェッショナルにお任せください。</p>
+      </div>
+      <div class="intro-stats">
+        <div class="istat">
+          <div class="istat-num">12年以上</div>
+          <div class="istat-label">創業実績</div>
+        </div>
+        <div class="istat">
+          <div class="istat-num">3拠点</div>
+          <div class="istat-label">横浜市内</div>
+        </div>
+        <div class="istat">
+          <div class="istat-num">3,651㎡</div>
+          <div class="istat-label">倉庫面積</div>
+        </div>
+        <div class="istat">
+          <div class="istat-num">0.0013%</div>
+          <div class="istat-label">誤出荷率以下</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PROBLEMS ════════════ -->
+<section id="problems">
+  <div class="wrap">
+    <h2 class="sec-title">こういった課題をお持ちの方に<em>おすすめ</em>です</h2>
+    <p class="sec-sub">2012年にEC物流を開始して以来、あらゆる課題を解決してきた物流のプロフェッショナルにお任せください</p>
+    <div class="prob-grid">
+      <div class="prob-card"><div class="prob-ico">😓</div><p>アウトソース先の品質が低くて困っている</p></div>
+      <div class="prob-card"><div class="prob-ico">⏱️</div><p>受注から出荷までをスムーズにしたい</p></div>
+      <div class="prob-card"><div class="prob-ico">📦</div><p>出荷量が増えて自社対応が難しくなってきた</p></div>
+      <div class="prob-card"><div class="prob-ico">👥</div><p>慢性的な人手不足を解消したい</p></div>
+      <div class="prob-card"><div class="prob-ico">⭐</div><p>付加価値をつけてリピーターを増やしたい</p></div>
+      <div class="prob-card"><div class="prob-ico">🕐</div><p>物流業務に時間を取られてコア業務に集中できない</p></div>
+      <div class="prob-card"><div class="prob-ico">📊</div><p>在庫数が合わずスムーズな棚卸しが行えない</p></div>
+      <div class="prob-card"><div class="prob-ico">🏭</div><p>契約している倉庫のデッドスペースが多すぎる</p></div>
+      <div class="prob-card"><div class="prob-ico">😰</div><p>繁忙期は人手不足により毎日残業が発生している</p></div>
+      <div class="prob-card"><div class="prob-ico">🎯</div><p>お客様一人ひとりに合わせた販促施策を行いたい</p></div>
+      <div class="prob-card"><div class="prob-ico">🚚</div><p>当日発送して翌日届くエリアを拡大したい</p></div>
+      <div class="prob-card"><div class="prob-ico">🏆</div><p>大手企業レベルの物流サービスを実現したい</p></div>
+    </div>
+    <div class="prob-cta">
+      <a class="btn btn-blue" href="#features">解決できる課題を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FEATURES ════════════ -->
+<section id="features" class="sec">
+  <div class="wrap">
+    <h2 class="sec-title"><em>8つの特長</em></h2>
+    <p class="sec-sub">単なる商品保管や発送代行だけでなく、在庫管理、返品対応などの出荷業務全般をサポートすることで売上アップに貢献いたします</p>
+
+    <div class="feat-item">
+      <div class="feat-body">
+        <div class="feat-pt">Point 01</div>
+        <h3>面倒な業務をまるっと代行<br>EC運営の大変な思いを軽減</h3>
+        <p>入荷、検品、在庫管理、ピッキング、流通加工、梱包、出荷、返品処理など一連の業務をプロである私たちがお引き受けすることで、毎日発生する入荷から出荷までの人手作業が不要となります。バックヤード業務の足かせがなくなり、売上アップ、集客、商品企画などのコア業務に集中できる環境が整います。また窓口が一本化されることで時間の無駄がなくなります。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/ecorder_flow_f.png?fit=1200%2C800&ssl=1" alt="EC業務フロー">
+      </div>
+    </div>
+
+    <div class="feat-item rev">
+      <div class="feat-body">
+        <div class="feat-pt">Point 02</div>
+        <h3>繁忙期やイベント時などの<br>出荷増の波動にもスムーズに対応</h3>
+        <p>ECモールでの大規模セールや季節イベント、テレビで紹介された場合など、1日の出荷数が通常と比較して数十倍になることは珍しくありません。注文が増加したことで商品発送の遅延や誤配送が発生した場合、機会損失になるのはもちろんのこと、ブランドイメージの毀損につながる可能性もあります。ロジファストでは大量注文にも最適な人員配置や臨機応変なレイアウト変更により、スピーディーかつスムーズに対応いたします。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/feature_img_02.jpg?fit=1200%2C800&ssl=1" alt="繁忙期対応">
+      </div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-body">
+        <div class="feat-pt">Point 03</div>
+        <h3>全てのモールやカートと連携して<br>オンライン完結を実現</h3>
+        <p>ロジファストではいち早く物流のIT化を取り入れ、あらゆる場面でデジタル管理を行っております。最新のクラウド型の物流システム（WMS）により、入出庫確認、在庫確認、各種データの管理、部分的な対応依頼もオンライン上で完結できます。楽天市場やAmazon、Yahoo!ショッピングなどの大手ECモールをはじめ、さまざまなECモール、カート、決済システム、一元管理ツールとシームレスに連携して自動出荷を可能にします。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/integration_asp_list_20240424.png?fit=1500%2C1000&ssl=1" alt="連携可能なシステム">
+      </div>
+    </div>
+
+    <div class="feat-item rev">
+      <div class="feat-body">
+        <div class="feat-pt">Point 04</div>
+        <h3>高評価レビュー獲得や<br>顧客満足度を高める施策に対応</h3>
+        <p>競争の激しいEC業界で勝ち残っていくために欠かせないのが差別化戦略です。しかし商品のコモディティ化が進み、商品や価格だけで差別化することが難しい時代になっています。そこで当社では顧客とのタッチポイントである物流による差別化を推進しております。ガムテープを使わない箱、丁寧な梱包、個別ラッピング、贈答用のし、メッセージカード、顧客や商品ごとに異なる同梱物、無料サンプル同梱、翌日配送、オリジナル資材など、顧客体験を向上させる様々な施策をご提案いたします。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/feature_img_04.jpg?fit=1200%2C800&ssl=1" alt="顧客満足度向上">
+      </div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-body">
+        <div class="feat-pt">Point 05</div>
+        <h3>ギフト需要に特化した細やかな<br>サービスで顧客体験を向上</h3>
+        <p>ロジファストでは「私たちはチームで連帯し、お客様に最高の感動をお届けし、パーソナルギフト市場日本一の倉庫会社となる」というクレドを旗印として、一般的な物流会社では対応が難しい個別商品への名入れ加工やメッセージ加工、オリジナル資材を利用したラッピング包装、デパート包装、化粧箱詰めなど、商品に付加価値を付与できるオプションサービスをご用意しております。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/feature_img_05.jpg?fit=1200%2C800&ssl=1" alt="ギフト包装">
+      </div>
+    </div>
+
+    <div class="feat-item rev">
+      <div class="feat-body">
+        <div class="feat-pt">Point 06</div>
+        <h3>小ロットでの利用が可能<br>各種資材も低価格でご提供</h3>
+        <p>倉庫はダンボール1箱からご利用いただけます。従量課金で無駄がない料金体系を採用。許容以上の坪数を借りて無駄に費用をかける必要はありません。出荷時に必要な発送用のダンボール、クラフト紙、エアクッションなどの緩衝材、クラフトテープ、OPPテープなど、大量仕入れによりコストを抑えた低価格で提供いたします。ロゴや店舗名が印字されたオジリナルのダンボールや下げ札、ラベルシールなどにも対応いたします。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/feature_img_06.jpg?fit=1200%2C800&ssl=1" alt="小ロット対応">
+      </div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-body">
+        <div class="feat-pt">Point 07</div>
+        <h3>横浜市中内に3つの物流拠点<br>倉庫の合計延べ床面積1,217坪</h3>
+        <p>物流拠点は横浜の中区、南区にあります。横浜駅から車で25分の好立地のため、商品の状態をいつでも確認できます。輸入商品の輸送状況に不安がある場合や事前に商品を確認したい場合、包装や梱包について実物を見て確認したい場合など、ご自身ですぐにご確認いただけます。倉庫の床面積は3,651㎡（1,217坪）あり、在庫の保管スペースを気にしていただく必要はありません。安心してEC（ネットショップ・通販）の売上を上げていただけます。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/feature_img_07.jpg?fit=1200%2C800&ssl=1" alt="横浜の物流拠点">
+      </div>
+    </div>
+
+    <div class="feat-item rev">
+      <div class="feat-body">
+        <div class="feat-pt">Point 08</div>
+        <h3>PDCA継続による高い物流品質と<br>万全のサポート体制をご提供</h3>
+        <p>ロジファストでは経験豊富な物流コンサルタントの専任制を採用しており、EC物流の新規立ち上げから運用までを一貫して支援いたします。定期的に開催する物流ミーティングでは、導入後の問題点や改善状況の報告、分析データの共有、新たな取り組みのご提案を実施。一緒にPDCAサイクルを回すことで、効果的な運用をサポートいたします。またヒューマンエラーが発生しない仕組みと独自のノウハウによって、出荷誤差発生率0.0013%以下（2020年度実績）という一般的な目標値である誤出荷率0.01%を大きく下回る誤差を実現。誤出荷による消費者（エンドユーザー）様からのクレームを低減いたします。</p>
+      </div>
+      <div class="feat-img">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/feature_img_08.jpg?fit=1200%2C800&ssl=1" alt="品質管理">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SERVICES ════════════ -->
+<section id="services">
+  <div class="wrap">
+    <h2 class="sec-title">対応可能な<em>業務</em></h2>
+    <p class="sec-sub">入荷、検品、在庫管理、ピッキング、流通加工、梱包、出荷、返品処理など、ECに必要なすべてのサービスをワンストップでご提供いたします</p>
+    <div class="svc-grid">
+      <a class="svc-card" href="https://logifast.jp/menu/inventory/">
+        <div class="svc-ico">📋</div><h3>在庫管理</h3><p>最新クラウド型WMSで入出庫・在庫をリアルタイム管理。在庫差異の問題を解決します。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/inspection/">
+        <div class="svc-ico">🔍</div><h3>検品</h3><p>経験豊富な日本人スタッフが外観目視・機能検査など商品特性に合わせた検品を丁寧に実施。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/inspecting-clothing/">
+        <div class="svc-ico">🧲</div><h3>検針</h3><p>コンベア型検針機によるスピーディーな残針検査。衣料品はもちろん多種多様な品目に対応。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/shipping/">
+        <div class="svc-ico">🚚</div><h3>出荷対応</h3><p>ECモール・カートと自動連携で受注情報を自動取込み。大量注文にもスピードと品質を維持。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/storage/">
+        <div class="svc-ico">🏭</div><h3>保管・荷役</h3><p>横浜駅から車25分。成田・羽田・大井・横浜埠頭近く。40フィートコンテナ入庫にも対応。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/labeling/">
+        <div class="svc-ico">🏷️</div><h3>タグ・ラベル貼付</h3><p>JANコード・品番ラベル・輸入品の日本語表示ラベルなど、熟練スタッフが細やかに対応。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/fba/">
+        <div class="svc-ico">📦</div><h3>FBA納品代行</h3><p>Amazonが定める規格準拠の商品ラベル貼付・検品・梱包・納品を一手にお引き受け。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/assort/">
+        <div class="svc-ico">🎀</div><h3>セット組・同梱物</h3><p>販売形態に合わせた多様なセット組に対応。EC運営ノウハウを活かした同梱物のご提案も。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/gift-wrapping/">
+        <div class="svc-ico">🎁</div><h3>ギフト包装</h3><p>冠婚葬祭で培ったラッピング技術で1つひとつ丁寧に対応。オリジナルデザインにも対応。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/original-material/">
+        <div class="svc-ico">🗃️</div><h3>オリジナルダンボール作成</h3><p>1999年からの梱包資材の知識を活かし、ブランドイメージに合う最適な梱包資材をご提案。</p>
+      </a>
+      <a class="svc-card" href="https://logifast.jp/menu/returns/">
+        <div class="svc-ico">↩️</div><h3>返品対応</h3><p>返品受付・荷受け・検品・仕分け・交換品発送まで一連の返品業務を代行。再販サービスも。</p>
+      </a>
+    </div>
+    <div class="svc-more">
+      <a class="btn btn-blue" href="https://logifast.jp/menu/">業務一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PRODUCTS ════════════ -->
+<section id="products" class="sec">
+  <div class="wrap">
+    <h2 class="sec-title">取り扱い可能な<em>商品</em></h2>
+    <p class="sec-sub">多種多様な商品に対応しております。年間を通じて一定温度を保つことができる定温倉庫もご利用可能です</p>
+    <div class="prod-grid">
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_1.jpg?fit=399%2C266&ssl=1" alt="健康食品">
+        <h3>健康食品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_2.jpg?fit=399%2C266&ssl=1" alt="化粧品">
+        <h3>化粧品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_3.jpg?fit=399%2C266&ssl=1" alt="アパレル">
+        <h3>アパレル</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_4.jpg?fit=399%2C266&ssl=1" alt="革製品">
+        <h3>革製品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_5.jpg?fit=399%2C266&ssl=1" alt="キッチン・バス回り用品">
+        <h3>キッチン・バス回り</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_6.jpg?fit=399%2C266&ssl=1" alt="ステイショナリー用品">
+        <h3>ステイショナリー</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_7.jpg?fit=399%2C266&ssl=1" alt="介護用品">
+        <h3>介護用品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_8.jpg?fit=399%2C266&ssl=1" alt="インテリア用品">
+        <h3>インテリア用品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_9.jpg?fit=399%2C266&ssl=1" alt="ギフト用品">
+        <h3>ギフト用品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_10.jpg?fit=399%2C266&ssl=1" alt="アクセサリー">
+        <h3>アクセサリー</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_11.jpg?fit=399%2C266&ssl=1" alt="スポーツ用品">
+        <h3>スポーツ用品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_12.jpg?fit=399%2C266&ssl=1" alt="ベビー・キッズ用品">
+        <h3>ベビー・キッズ用品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_13.jpg?fit=399%2C266&ssl=1" alt="キャラクターグッズ">
+        <h3>キャラクターグッズ</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_14.jpg?fit=399%2C266&ssl=1" alt="ペット用品">
+        <h3>ペット用品</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_15.jpg?fit=399%2C266&ssl=1" alt="酒類・飲料">
+        <h3>酒類・飲料</h3>
+      </div>
+      <div class="prod-item">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/acceptable_products_16.jpg?fit=399%2C266&ssl=1" alt="家電・電子機器">
+        <h3>家電・電子機器</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ INTEGRATIONS ════════════ -->
+<section id="integrations">
+  <div class="wrap">
+    <h2 class="sec-title">連携可能な<em>システム</em></h2>
+    <p class="sec-sub">APIとCSVを使用したシステム連携によって、あらゆるECモール、カートASP、決済システム、一元管理ツールと連携して自動出荷を可能にします</p>
+    <div class="integ-img">
+      <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/integration_asp_list_20240424.png?fit=1500%2C1000&ssl=1" alt="連携可能なシステム一覧">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CREDENTIALS ════════════ -->
+<section id="creds">
+  <div class="wrap">
+    <h2 class="sec-title">安心の<em style="color:var(--blue)">実績</em></h2>
+    <p class="sec-sub">創業12年以上で培った様々なノウハウと時代に合わせて進化した技術を武器に、最高のワンストップEC物流・発送代行サービスを提供いたします</p>
+    <div class="creds-grid">
+      <div class="cred-card">
+        <div class="cred-ico">🏢</div>
+        <div class="cred-num">12年以上</div>
+        <div class="cred-lbl">創業実績</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-ico">📦</div>
+        <div class="cred-num">12年以上</div>
+        <div class="cred-lbl">EC物流実績</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-ico">✅</div>
+        <div class="cred-num">0.0013%以下</div>
+        <div class="cred-lbl">誤出荷差率（2020年度実績）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TESTIMONIALS ════════════ -->
+<section id="testi">
+  <div class="wrap">
+    <h2 class="sec-title">お客様の<em>声</em></h2>
+    <p class="sec-sub">多くのお客様から評価の声をいただいております</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p>いつも細かいリクエストに対応していただき、ありがとうございます。特に少量の商品のバラ出荷に対応していただけるのは本当に助かります。</p>
+        <div class="testi-author">EC事業者様</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p>ウチの社員より、ロジファストさんのほうが厳しく検品してくれるんです。</p>
+        <div class="testi-author">EC事業者様</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p>出荷ミスをガクッと下げて、売上をググっと上げてくれました。</p>
+        <div class="testi-author">EC事業者様</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p>毎度毎度申し訳ないと思っているんですが、無理を言っても対応してもらって、細かい心遣いがありがたいです。</p>
+        <div class="testi-author">EC事業者様</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p>特に素晴らしいのが柔軟でスピーディーな対応力。お付き合いする前にはあった出荷ミスもなくなり、丁寧な仕事ぶりに満足。安心して物流を任せられるようになりました。</p>
+        <div class="testi-author">EC事業者様</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-q">"</div>
+        <p>ロジファストさんのいいところは、何と言ってもオンライン管理が徹底されているところ。どこに何があるのか、すぐにわかる。在庫確認も入出庫作業も、とてもスムーズで正確なんです。</p>
+        <div class="testi-author">EC事業者様</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CASES ════════════ -->
+<section id="cases" class="sec">
+  <div class="wrap">
+    <h2 class="sec-title">お客様<em>事例</em></h2>
+    <p class="sec-sub">EC物流・発送代行サービスを導入いただいたお客様の一部をご紹介いたします</p>
+    <div class="cases-grid">
+      <a class="case-card" href="https://logifast.jp/work/">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/case-study-04-800x420-1.png?fit=800%2C420&ssl=1" alt="事例04">
+        <div class="case-body">
+          <div class="case-meta">検品・出荷対応</div>
+          <h3>柔軟な検品でクレームを軽減、販売機会の損失を最小限に</h3>
+        </div>
+      </a>
+      <a class="case-card" href="https://logifast.jp/work/">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/case-study-06-800x420-1.png?fit=800%2C420&ssl=1" alt="事例06">
+        <div class="case-body">
+          <div class="case-meta">FBA納品代行</div>
+          <h3>FBA納品代行を活用して経費削減、コア業務への集中が可能に</h3>
+        </div>
+      </a>
+      <a class="case-card" href="https://logifast.jp/work/">
+        <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/case-study-07-800x420-1.png?fit=800%2C420&ssl=1" alt="事例07">
+        <div class="case-body">
+          <div class="case-meta">返品対応</div>
+          <h3>手間のかかる返品作業を委託してコア業務に集中可能に</h3>
+        </div>
+      </a>
+    </div>
+    <div class="cases-more">
+      <a class="btn btn-blue" href="https://logifast.jp/work/">事例一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PRICING ════════════ -->
+<section id="pricing">
+  <div class="wrap">
+    <h2 class="sec-title" style="color:#fff">料金・<span style="color:rgba(255,255,255,.9)">プラン</span></h2>
+    <p class="sec-sub">料金は使った分だけ、無駄がない料金体系でご提供いたします。お客様のご要望に準じて最適なプランをご提案いたします</p>
+    <div class="price-cards">
+      <div class="price-card"><h3>初期費用</h3><p>ご相談に応じて</p></div>
+      <div class="price-card"><h3>月額固定費</h3><p>保管料・基本料のみ</p></div>
+      <div class="price-card"><h3>作業費</h3><p>件数・内容に応じた従量課金</p></div>
+      <div class="price-card"><h3>資材費</h3><p>使用した梱包資材の実費</p></div>
+    </div>
+    <p class="price-note">詳細な料金はお客様の業務内容・量によって異なります。まずはお気軽にお問い合わせください。</p>
+    <a class="btn btn-wh" href="#contact">料金の詳細を問い合わせる</a>
+  </div>
+</section>
+
+<!-- ════════════ FLOW ════════════ -->
+<section id="flow">
+  <div class="wrap">
+    <h2 class="sec-title">サービス提供の<em>流れ</em></h2>
+    <p class="sec-sub">お問い合わせからサービス開始まで</p>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <h3>お問い合わせ</h3>
+        <p>無料相談フォームまたはお電話（045-315-5250）にてお問い合わせください</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <h3>ヒアリング</h3>
+        <p>30〜60分の無料相談でEC事業の方針・商品特性・入出荷方法などをヒアリング</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <h3>お見積り・ご提案</h3>
+        <p>ヒアリング内容を元に最適なプランとお見積り金額をご提案いたします</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <h3>最終のご提案・ご契約</h3>
+        <p>追加ヒアリングを踏まえ具体的なプランをご提案。合意後に契約締結（お客様の書類準備は不要）</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <h3>サービス提供</h3>
+        <p>システム連携・マニュアル作成・業務フロー構築を経てEC物流の運用を開始いたします</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FAQ ════════════ -->
+<section id="faq" class="sec">
+  <div class="wrap">
+    <h2 class="sec-title">よくある<em>質問</em></h2>
+    <p class="sec-sub">EC物流・発送代行サービスについて寄せられる質問とその回答をご紹介します</p>
+    <div class="faq-list">
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">EC物流・発送代行について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          作業がかなり特殊なのですが、対応可能でしょうか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">これまでも通電や動作確認などの様々な特殊作業を経験しております。たいていの作業であれば対応可能です。まずはお気軽にご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          対応しているECサイトなどはありますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">楽天市場、Yahoo!ショッピングといったモールとはAPI連携にて対応可能です。その他多数のカートや受注管理システムとの連携も可能です。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          リピート通販は対応可能ですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">当社の倉庫管理システムは、リピート通販に対応したシステムとなっております。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          ギフトラッピングは対応可能ですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">包装紙、巾着、リボンかけなど多彩なラッピングに対応しております。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          あす楽、あすつくは対応可能ですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">当日出荷時間内で対応いたします。当日出荷時間については、詳細を打合せした上で決定する形となります。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          BtoBとBtoCの両方に対応できますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">はい。どちらか一方だけでも対応できます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どのような受注管理ソフトでも対応できますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">CSVファイルで受注データを出力いただければ、問題ありません。一部API連携のソフトもございます。受注管理ソフトをお持ちでない場合は、当社提供のソフトを利用いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          出荷の品質保持はどのようにして行われますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">バーコードスキャン、ISO9001（品質向上を目的とした品質マネジメントシステム規格）で培ったノウハウを基に正確な出荷を行います。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          物流代行の料金表はありますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">物流の御見積の費用項目は、作業内容や物量によって大きく変わるため、まずは業務内容や物量、御社の実現したいことをヒアリングさせていただきます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          365日対応可能ですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">可能です。ご相談ください。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">出荷対応について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          受注データの受け渡しはどうなりますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">ECモールやカートシステムとの自動連係を行う方法と、利用しているシステムから受注データをCSVファイルで出力し弊社システムに落とす方法と、弊社から提供するCSVファイルフォーマットに受注情報を入力し弊社システムに落とす方法の３パターンで受け渡しが可能です。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          当日出荷は対応可能ですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">対応可能です。物量や作業内容により締め時間を設定させていただきます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          在庫の確認をしたいときはどうすればいいですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">弊社システムにログインいただければ、いつでも確認いただけます。在庫の他に、入庫や出庫の確認も可能です。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          配送業者の指定はありますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">佐川急便、ヤマト運輸からお選びいただきます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          チラシやカタログなどを一緒に梱包して出庫してもらえますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">可能です。システムで商品と紐づけたり、注文者名と紐づけたりすることで、自動的に必要なチラシやカタログを一緒に出庫いたします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          発送用段ボールなどの包装資材の手配も可能ですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">可能です。発送用段ボールは60サイズ～160サイズまで、その他緩衝材やテープ類を大量購入にて安価で取り揃えております。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">在庫管理について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          在庫管理はどのように行っていますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">最新のクラウド型の在庫管理システムを活用し、商品や入出庫頻度に合わせた保管レイアウトやロケーション管理を行い、正確でスムーズな入出庫管理を行っております。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          在庫誤差はありますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">近い将来誤差ゼロ実現を目指し、現在は出荷誤差発生率0.0013%のところまで来ました。今後も誤差発生時のQC活動を徹底し、精度向上を目指します。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          賞味期限などのロット管理も可能ですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">賞味期限の他に品質保持期限や製造ロットナンバー、シリアルナンバーなども管理可能です。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          商品以外のチラシやカタログなどの販促も在庫管理できますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">商品同様可能です。包装紙やショッパーなども実際に在庫管理を行っております。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">保管・荷役について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          保管できない商品はありますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">温度管理を伴う商品、湿度管理を伴う商品、生鮮食品、危険物、特別管理の商品、匂いを発する商品（臭いが外部に漏れなければ可能）、大型の商品、医薬品、高価な商品などは保管できません。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          商品の入出庫管理はどのようになってますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">倉庫管理システムにてハンディスキャナーを用いて、商品照合並びに数量確認を行います。出庫は入庫日の古い順に出庫する先入れ先出しが基本となりますが、食品などの品質保持期限のあるものは期限の近いものから出庫、ロット管理が必要なものはロット指定での出庫も対応いたします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          海上コンテナ40フィートの荷降ろしもできますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">可能です。20フィートも可能です。パレット降ろしとバラ降ろしで料金が異なります。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          定温倉庫は何度に設定していますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">24時間365日14度で設定しております。湿度は管理しておりません。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          保管している商品を廃棄したい場合は、どうすればいいですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">当社と提携している廃棄業者を利用しての処分、もしくは海外転売することが可能です。当社が運営している楽天市場、Yahoo!ショッピングのECサイトでの販売も可能です。また、年1回バザールを開催していますのでそちらもご利用下さい。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">検品について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どのような検品が可能ですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">財布、バッグなどの縫製品以外に、文具、食器、ガラス製品、時計などの小型電子機器などの実績があります。どんな商品でも一度ご相談ください。※化粧品、管理医療機器の検品はできません。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          不良品が見つかった場合、どう対処しますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">不良品が発生した場合は、メール・電話で連絡させていただきます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          各店舗に配分出荷や個人宅直送は可能ですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">可能です。弊社ではさまざまなメーカー様からのご依頼で、店舗配分出荷や個人宅直送など数多くの作業実績がございます。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">ギフト包装について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どのようなギフト包装に対応していますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">冠婚葬祭やギフト関連で培った経験と技術をもとに、包装紙でのラッピング、ひも付き巾着やリボン、お客様オリジナルの資材でのラッピングなどに対応しております。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          ギフト包装資材の在庫管理をお願いできますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">通常商品と同様に対応可能です。在庫管理することで包装資材の機会損失防止に繋がります。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          季節ごとにギフト包装を変えることはできますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">クリスマスなどのシーズンイベントに合わせて、変更することも可能です。お気軽にご相談ください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          ギフト包装以外のギフト対応サービスはありますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">新たなサービスとして、お客様の商品自体にお名前やメッセージ、ロゴなどをレーザー機を使って名入れをするサービスをはじめました。まずはお気軽にご相談ください。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">セット組・同梱物について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どのようなセット組に対応していますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">商品を指定の化粧箱から組み立てるセットはもちろん、ギフトラッピングやプライスラベルを貼るなど、様々なセット組に対応しています。一括でまとめてセット作成するパターンと、日々の出庫依頼に合わせて都度セット作成するパターンのいずれも対応しております。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どのような同梱物に対応していますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">カタログ、チラシ、納品書、メッセージカード、取扱説明書、保証書、付属品など、様々な同梱物を同梱しております。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          リピート通販のような同梱物の対応も可能ですか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">対応可能です。注文回数に応じて必要な同梱物を紐づけて出荷いたします。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">タグ・ラベル貼付について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どんなタグ付けやラベル貼りを行っていますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">JANコードや品番ラベル、プライスタグや輸入品などの日本語表示ラベル、品質保持期限ラベル、封緘ラベル、送り状ラベル貼りなどがございます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          ラベルの作成からお願いできますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">商品コードの作成から行っています。その他商品名や販売価格などの作成も可能です。事前にご連絡いただくなど詳細を確認させていただき、お客様に合わせたラベルの内容やサイズをご提案いたします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          化粧品のラベル貼りや貼替えなども対応していますか？
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">化粧品製造業許可を取得していない為、対応しておりません。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">ご契約について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          物流倉庫を見学することはできますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">可能です。作業風景や保管状況など、実際の現場で確認いただけます。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          契約期間はありますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">2年契約となります。その後1年毎自動更新となります。期間内解約については、3ヶ月前通知にて可能です。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          乗換えの際の移行はスムーズに移行できますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">これまでの経験を基に、システム面や在庫の移動をスムーズに行います。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">料金について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          大体の費用感はどれくらいですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">作業内容などの前提条件をヒアリングさせていただき、お見積りいたします。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          どういった料金がかかりますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">基本的には、保管料、入庫料、出庫料、付帯作業料、配送料がかかります。</div>
+      </div>
+
+      <h3 style="font-size:16px;font-weight:700;color:var(--navy);margin:32px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--blue);">運営会社について</h3>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          個人情報の管理については大丈夫ですか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">プライバシーマークを取得しております。ご安心ください。</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-qmark">Q</span>
+          セキュリティー対策や災害対策などはされていますか
+          <span class="faq-arr">▼</span>
+        </button>
+        <div class="faq-ans">セキュリティーにおいては、機械警備や警備員が常駐しております。災害対策においては、非常用電源設備を設置し、停電時でも物流を止めることはございません。</div>
+      </div>
+
+    </div>
+    <div class="faq-more">
+      <a class="btn btn-line" href="https://logifast.jp/faq/">よくある質問をもっと見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CONTACT ════════════ -->
+<section id="contact">
+  <div class="wrap">
+    <h2 class="sec-title">まずはお気軽に<em>お問い合わせ</em>ください</h2>
+    <p class="sec-sub">オンライン相談・倉庫見学など柔軟に対応いたします</p>
+    <div class="contact-grid">
+      <div class="c-info">
+        <h2>EC物流のことなら<br>ロジファストへ</h2>
+        <p>中堅・中小企業の皆様を物流を通して強力にバックアップ。在庫管理から検品・出荷・返品まで、EC運営の面倒な業務をまるっと代行します。オンライン相談・倉庫見学など柔軟に対応いたします。</p>
+        <div class="c-tel">
+          <div class="c-tel-lbl">お電話でのお問い合わせ</div>
+          <a href="tel:0453155316">045-315-5316</a>
+          <div class="c-tel-note">※営業のお電話はご遠慮ください</div>
+        </div>
+        <div class="c-tel">
+          <div class="c-tel-lbl">所在地</div>
+          <div style="font-size:13px;color:var(--dark);line-height:1.9;">
+            〒232-0021<br>
+            神奈川県横浜市南区真金町2丁目19-21<br>
+            クオス横浜大通り公園704<br>
+            <a href="mailto:info@logifast.jp" style="color:var(--blue)">info@logifast.jp</a>
+          </div>
+        </div>
+        <div class="c-tel">
+          <div class="c-tel-lbl">会社概要</div>
+          <div style="font-size:13px;color:var(--dark);line-height:1.9;">
+            社名：ロジファスト株式会社<br>
+            創業：2025年1月10日<br>
+            資本金：900万円<br>
+            代表取締役：川村　強<br>
+            関連会社：ゴイチマル株式会社
+          </div>
+        </div>
+      </div>
+      <div class="c-form-card">
+        <h3>お問い合わせフォーム</h3>
+        <form>
+          <div class="cf-row">
+            <div class="cf-g">
+              <label>お名前（姓）<span class="req">必須</span></label>
+              <input type="text" placeholder="山田" required>
+            </div>
+            <div class="cf-g">
+              <label>お名前（名）<span class="req">必須</span></label>
+              <input type="text" placeholder="太郎" required>
+            </div>
+          </div>
+          <div class="cf-g">
+            <label>メールアドレス<span class="req">必須</span></label>
+            <input type="email" placeholder="example@company.co.jp" required>
+          </div>
+          <div class="cf-g">
+            <label>会社名<span class="req">必須</span></label>
+            <input type="text" placeholder="株式会社〇〇" required>
+          </div>
+          <div class="cf-g">
+            <label>電話番号</label>
+            <input type="tel" placeholder="090-0000-0000">
+          </div>
+          <div class="cf-g">
+            <label>お問い合わせ内容</label>
+            <textarea placeholder="ご質問・ご要望をご記入ください"></textarea>
+          </div>
+          <button type="submit" class="cf-submit">送信する</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="ft-logo">
+          <img src="https://i0.wp.com/logifast.jp/wp-content/uploads/2024/12/lgf-logo-ht.png?fit=768%2C100&ssl=1" alt="ロジファスト">
+        </div>
+        <address class="ft-addr" style="font-style:normal;">
+          〒232-0021<br>
+          神奈川県横浜市南区真金町2丁目19-21<br>
+          クオス横浜大通り公園704<br><br>
+          <a href="mailto:info@logifast.jp">info@logifast.jp</a><br>
+          <a href="tel:0453155316">045-315-5316</a>
+        </address>
+      </div>
+      <div class="ft-nav">
+        <div class="ft-nav-col">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="#features">特長</a></li>
+            <li><a href="#pricing">料金</a></li>
+            <li><a href="#faq">よくある質問</a></li>
+            <li><a href="#cases">導入事例</a></li>
+            <li><a href="https://logifast.jp/download/">お役立ち資料</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div class="ft-nav-col">
+          <h4>対応可能な業務</h4>
+          <ul>
+            <li><a href="https://logifast.jp/menu/inspection/">検品</a></li>
+            <li><a href="https://logifast.jp/menu/inspecting-clothing/">検針</a></li>
+            <li><a href="https://logifast.jp/menu/shipping/">出荷対応</a></li>
+            <li><a href="https://logifast.jp/menu/storage/">保管・荷役</a></li>
+            <li><a href="https://logifast.jp/menu/labeling/">タグ・ラベル貼付</a></li>
+            <li><a href="https://logifast.jp/menu/inventory/">在庫管理</a></li>
+            <li><a href="https://logifast.jp/menu/fba/">FBA納品代行</a></li>
+            <li><a href="https://logifast.jp/menu/assort/">セット組・同梱物</a></li>
+            <li><a href="https://logifast.jp/menu/gift-wrapping/">ギフト包装</a></li>
+            <li><a href="https://logifast.jp/menu/original-material/">オリジナルダンボール作成</a></li>
+            <li><a href="https://logifast.jp/menu/returns/">返品対応</a></li>
+          </ul>
+        </div>
+        <div class="ft-nav-col">
+          <h4>会社情報</h4>
+          <ul>
+            <li><a href="https://logifast.jp/company/">会社概要</a></li>
+            <li><a href="https://logifast.jp/privacy/">個人情報保護方針</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-btm">© 2026 LOGIFAST, INC. All rights reserved.</div>
+</footer>
+
+<!-- FLOATING CTA -->
+<div class="fl-cta">
+  <a class="fl-contact" href="#contact">📧 無料相談</a>
+  <a class="fl-tel"     href="tel:0453155316">📞 045-315-5316</a>
+</div>
+<a class="back-top" id="backTop" href="#hero">↑</a>
+
+<script>
+  function toggleFaq(btn) {
+    btn.closest('.faq-item').classList.toggle('open');
+  }
+  const bt = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    bt.classList.toggle('vis', window.scrollY > 400);
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 68, behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
