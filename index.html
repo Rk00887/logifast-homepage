@@ -110,52 +110,79 @@
     #hero {
       margin-top: 68px;
       position: relative;
-      background: url('images/20241227-160516.jpg') center center / cover no-repeat;
-      min-height: 600px;
-      display: flex; align-items: center;
-    }
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.2) 60%, rgba(0,0,0,.05) 100%);
+      background: #cfe4f0 url('images/sec01img03_img01sp.png') center center / cover no-repeat;
+      min-height: 580px;
+      display: flex; flex-direction: column; align-items: stretch;
     }
     .hero-in {
       position: relative; z-index: 1;
-      max-width: 1140px; margin: 0 auto; padding: 60px 24px;
-      display: flex; align-items: flex-start; gap: 40px;
+      max-width: 1140px; margin: 0 auto; padding: 56px 24px 40px;
+      display: flex; align-items: center; gap: 40px;
+      flex: 1;
     }
-    .hero-txt { flex: 1; color: #fff; }
-    .hero-tag {
-      display: inline-block;
-      background: var(--blue); color: #fff;
-      font-size: 12px; font-weight: 700;
-      padding: 3px 12px; border-radius: 2px;
-      margin-bottom: 16px; letter-spacing: .06em;
+    .hero-txt { flex: 1; color: var(--dark); }
+    .hero-small {
+      font-size: 13px; font-weight: 700; color: var(--dark);
+      margin-bottom: 10px; letter-spacing: .04em;
     }
     .hero-txt h1 {
-      font-size: 38px; font-weight: 900; line-height: 1.3;
-      margin-bottom: 12px;
-      text-shadow: 0 2px 8px rgba(0,0,0,.3);
+      font-size: 36px; font-weight: 900; line-height: 1.3;
+      margin-bottom: 10px; color: var(--dark);
     }
-    .hero-txt h2 {
-      font-size: 20px; font-weight: 700; line-height: 1.5;
-      margin-bottom: 24px;
-      text-shadow: 0 1px 4px rgba(0,0,0,.3);
+    .hero-hl {
+      position: relative; display: inline-block;
     }
-    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-hl::before {
+      content: '';
+      position: absolute;
+      width: 110%; height: 55%;
+      bottom: -4px; left: -5%;
+      background: rgba(255, 210, 0, 0.45);
+      border-radius: 50%;
+      z-index: -1;
+    }
+    .hero-arrow {
+      font-size: 14px; font-weight: 700; color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .hero-bullets {
+      list-style: none; padding: 0; margin-bottom: 0;
+    }
+    .hero-bullets li {
+      font-size: 13px; color: var(--dark); font-weight: 500;
+      padding: 3px 0; display: flex; align-items: center; gap: 6px;
+    }
+    .hero-bullets li::before {
+      content: '✓'; color: var(--blue); font-weight: 900; flex-shrink: 0;
+    }
 
     /* hero form card */
     .hero-form {
-      flex: 0 0 320px;
-      background: rgba(255,255,255,.97);
-      border-radius: 8px; padding: 28px 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      flex: 0 0 310px;
+      background: #fff;
+      border-radius: 8px; padding: 24px 22px;
+      box-shadow: 0 6px 28px rgba(0,0,0,.14);
     }
     .hero-form h3 {
-      font-size: 15px; font-weight: 700;
-      color: var(--dark); margin-bottom: 16px;
-      text-align: center; border-bottom: 2px solid var(--blue);
-      padding-bottom: 10px;
+      font-size: 14px; font-weight: 700;
+      color: var(--dark); margin-bottom: 14px;
+      text-align: center;
+    }
+
+    /* ── TICKER ── */
+    .hero-ticker {
+      background: linear-gradient(90deg, #7b1fa2 0%, #1565c0 100%);
+      overflow: hidden; padding: 9px 0;
+    }
+    .ticker-track {
+      display: flex; gap: 60px;
+      animation: ticker-move 30s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-track span { color: #fff; font-size: 13px; font-weight: 500; }
+    @keyframes ticker-move {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .hf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .hf-group { margin-bottom: 10px; }
@@ -516,46 +543,46 @@
 <!-- ════════════ HEADER ════════════ -->
 <header id="hdr">
   <div class="hdr-in">
-    <a class="hdr-logo" href="#">
+    <a class="hdr-logo" href="index.html">
       <img src="images/lgf-logo-top.png" alt="ロジファスト">
     </a>
     <div class="hdr-right">
       <nav class="hdr-nav">
         <ul>
-          <li><a href="#features">特長</a></li>
+          <li><a href="feature.html">特長</a></li>
           <li>
-            <a href="#problems">解決できる課題</a>
+            <a href="solution.html">解決できる課題</a>
             <ul>
-              <li><a href="#problems">アウトソース先の品質が低くて困っている</a></li>
-              <li><a href="#problems">受注から出荷までをスムーズにしたい</a></li>
-              <li><a href="#problems">出荷量が増えて自社対応が難しくなってきた</a></li>
-              <li><a href="#problems">慢性的な人手不足を解消したい</a></li>
-              <li><a href="#problems">付加価値をつけてリピーターを増やしたい</a></li>
+              <li><a href="solution/quality-improvement.html">アウトソース先の品質が低くて困っている</a></li>
+              <li><a href="solution/operational-efficiency.html">受注から出荷までをスムーズにしたい</a></li>
+              <li><a href="solution/outsourcing.html">出荷量が増えて自社対応が難しくなってきた</a></li>
+              <li><a href="solution/insufficient-manpower.html">慢性的な人手不足を解消したい</a></li>
+              <li><a href="solution/added-value.html">付加価値をつけてリピーターを増やしたい</a></li>
             </ul>
           </li>
           <li>
-            <a href="#services">対応可能な業務</a>
+            <a href="menu.html">対応可能な業務</a>
             <ul>
-              <li><a href="#services">検品</a></li>
-              <li><a href="#services">検針</a></li>
-              <li><a href="#services">出荷対応</a></li>
-              <li><a href="#services">保管・荷役</a></li>
-              <li><a href="#services">タグ・ラベル貼付</a></li>
-              <li><a href="#services">在庫管理</a></li>
-              <li><a href="#services">FBA納品代行</a></li>
-              <li><a href="#services">セット組・同梱物</a></li>
-              <li><a href="#services">ギフト包装</a></li>
-              <li><a href="#services">オリジナルダンボール作成</a></li>
-              <li><a href="#services">返品対応</a></li>
+              <li><a href="menu/inspection.html">検品</a></li>
+              <li><a href="menu/inspecting-clothing.html">検針</a></li>
+              <li><a href="menu/shipping.html">出荷対応</a></li>
+              <li><a href="menu/storage.html">保管・荷役</a></li>
+              <li><a href="menu/labeling.html">タグ・ラベル貼付</a></li>
+              <li><a href="menu/inventory.html">在庫管理</a></li>
+              <li><a href="menu/fba.html">FBA納品代行</a></li>
+              <li><a href="menu/assort.html">セット組・同梱物</a></li>
+              <li><a href="menu/gift-wrapping.html">ギフト包装</a></li>
+              <li><a href="menu/original-material.html">オリジナルダンボール作成</a></li>
+              <li><a href="menu/returns.html">返品対応</a></li>
             </ul>
           </li>
-          <li><a href="#faq">よくある質問</a></li>
-          <li><a href="#cases">事例</a></li>
-          <li><a href="#pricing">料金</a></li>
-          <li><a href="#contact">会社概要</a></li>
+          <li><a href="faq.html">よくある質問</a></li>
+          <li><a href="work.html">事例</a></li>
+          <li><a href="pricing.html">料金</a></li>
+          <li><a href="company.html">会社概要</a></li>
         </ul>
       </nav>
-      <a class="hdr-cta" href="#contact">お問い合わせ</a>
+      <a class="hdr-cta" href="contact.html">お問い合わせ</a>
     </div>
   </div>
 </header>
@@ -564,13 +591,15 @@
 <section id="hero">
   <div class="hero-in">
     <div class="hero-txt">
-      <span class="hero-tag">EC物流・発送代行</span>
-      <h1>倉庫完備・EC特化型<br>オーダーメイド物流</h1>
-      <h2>売上アップする EC物流・発送代行<br>出荷自動化でECの手間とストレスを軽減</h2>
-      <div class="hero-btns">
-        <a class="btn btn-blue" href="#contact">無料でお問い合わせ</a>
-        <a class="btn btn-wh"   href="#features">特長を見る</a>
-      </div>
+      <p class="hero-small">倉庫完備・EC特化型オーダーメイド物流</p>
+      <h1><span class="hero-hl">売上アップする</span><br>EC物流・発送代行</h1>
+      <p class="hero-arrow">↑ 出荷自動化でECの手間とストレスを軽減</p>
+      <ul class="hero-bullets">
+        <li>受注当日出荷・翌日配送対応</li>
+        <li>誤出荷率0.0013%以下の高品質管理</li>
+        <li>月1個からの小ロット対応・初期費用なし</li>
+        <li>横浜3拠点・3,651㎡の広大な自社倉庫</li>
+      </ul>
     </div>
 
     <div class="hero-form">
@@ -596,10 +625,24 @@
         </div>
         <div class="hf-group">
           <label>電話番号</label>
-          <input type="tel" placeholder="045-000-0000">
+          <input type="tel" placeholder="例）0453155250">
         </div>
         <button type="submit" class="hf-submit">送信する</button>
       </form>
+    </div>
+  </div>
+
+  <!-- ticker bar -->
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <span>EC通販の発送代行・物流代行・物流アウトソーシングなら横浜のロジファスト株式会社</span>
+      <span>｜</span>
+      <span>EC通販の発送代行・物流代行・物流アウトソーシングなら横浜のロジファスト株式会社</span>
+      <span>｜</span>
+      <span>EC通販の発送代行・物流代行・物流アウトソーシングなら横浜のロジファスト株式会社</span>
+      <span>｜</span>
+      <span>EC通販の発送代行・物流代行・物流アウトソーシングなら横浜のロジファスト株式会社</span>
+      <span>｜</span>
     </div>
   </div>
 </section>
